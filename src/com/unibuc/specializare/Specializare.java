@@ -1,44 +1,24 @@
 package com.unibuc.specializare;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Scanner;
+import com.participant.candidat.Candidat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Specializare {
     private String numeSpecializare;
     private int nrLocuriSpecializare;
     private String tipAdmitereSpecializare;
+    private Integer nrCandidati;
+    private List<Candidat> candidati = new ArrayList<Candidat>();
 
-    public Specializare(String numeSpecializare, int nrLocuriSpecializare, String tipAdmitereSpecializare) {
+    public Specializare(String numeSpecializare, int nrLocuriSpecializare, String tipAdmitereSpecializare, Integer nrCandidati ,List<Candidat> c) {
         this.numeSpecializare = numeSpecializare;
         this.nrLocuriSpecializare = nrLocuriSpecializare;
         this.tipAdmitereSpecializare = tipAdmitereSpecializare;
+        this.nrCandidati = nrCandidati;
+        this.candidati = c;
     }
 
-    public Specializare(){
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        Scanner in = new Scanner(System.in);
-        String numeS = null;
-        String tipAdmitere = null;
-        Integer nrLoc = 0;
-
-        try {
-            System.out.print("Numele Specializarii : ");
-            numeS = reader.readLine();
-            System.out.print("Nr Locuri : ");
-            nrLoc = in.nextInt();
-            System.out.print("Tip Admitere : ");
-            tipAdmitere = reader.readLine();
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-        this.numeSpecializare = numeS;
-        this.nrLocuriSpecializare = nrLoc;
-        this.tipAdmitereSpecializare = tipAdmitere;
-    }
 
     public void setNumeSpecializare(String numeSpecializare) { this.numeSpecializare = numeSpecializare; }
 
@@ -51,4 +31,14 @@ public class Specializare {
     public int getNrLocuriSpecializare() { return nrLocuriSpecializare; }
 
     public String getTipAdmitereSpecializare() { return tipAdmitereSpecializare; }
+
+    public List<Candidat> getCandidati(){ return candidati; }
+
+    public void addCandidat(Candidat c ){ candidati.add(c); }
+
+    public void setCandidati(List<Candidat> c){ this.candidati = c; }
+
+    public void setNrCandidati(Integer nrCandidati) { this.nrCandidati = nrCandidati; }
+
+    public Integer getNrCandidati() { return nrCandidati; }
 }

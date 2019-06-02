@@ -1,6 +1,7 @@
 import com.participant.candidat.Candidat;
 import com.participant.dosar.Dosar;
 import com.unibuc.facultate.Facultate;
+import services.ConsoleTextService;
 import services.FileTextService;
 
 import java.io.FileInputStream;
@@ -11,33 +12,31 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.CancellationException;
 
 public class main {
+//    public ArrayList<Facultate> facultati = new ArrayList<>();
 
     public static void main(String[] args) {
 
+        ArrayList<Facultate> facultati = new ArrayList<>();
+    MyForm myForm = new MyForm();
+    myForm.setVisible(true);
 
-
-
-        StringBuilder stringBuilder = new StringBuilder("");
-//        stringBuilder.append(.getName()
-//                .append(",").append(user.getHashPassword())
-//                .append(",").append(simpleDateFormat.format(user.getDateOfBirth()));
+//        StringBuilder stringBuilder = new StringBuilder("");
 //
-//
-//        FileTextService.getInstance().writeTextToFile(stringBuilder.toString(),
-//                "/Users/cristinamatei/Desktop/AdmiterePAO/files/facultati.csv");
-
 //        Facultate c = FileTextService.getInstance().readFacultateFromFile(
 //                "/Users/cristinamatei/Desktop/AdmiterePAO/files/facultati.csv", "/Users/cristinamatei/Desktop/AdmiterePAO/files/specializari.csv")  ;
-
-        Candidat candidat = FileTextService.getInstance().readCandidatFromFile("/Users/cristinamatei/Desktop/AdmiterePAO/files/candidati.csv");
-
-        System.out.println(candidat);
+//
+//        Dosar d = FileTextService.getInstance().readDosarFromFile("/Users/cristinamatei/Desktop/AdmiterePAO/files/dosare.csv");
+//        Facultate a = ConsoleTextService.getInstance().readConsoleFacultate();
+//        Candidat candidat = FileTextService.getInstance().readCandidatFromFile("/Users/cristinamatei/Desktop/AdmiterePAO/files/candidati.csv");
+//
+//        System.out.println(candidat);
 
 
 

@@ -1,7 +1,5 @@
 package com.participant.dosar;
 
-import com.unibuc.proba.Proba;
-
 import java.util.List;
 
 public class Dosar {

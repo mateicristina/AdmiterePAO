@@ -2,6 +2,7 @@ package com.unibuc.facultate;
 
 import com.unibuc.admitere.Admitere;
 import com.unibuc.specializare.Specializare;
+import services.ConsoleTextService;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,35 +29,6 @@ public class Facultate {
 //        this.admitere = admitere;
     }
 
-    public Facultate(){
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        Scanner in = new Scanner(System.in);
-        String nameFacultate = null;
-        String adressFacultate = null;
-        Integer nrLocuri = 0, nrSpec = 0;
-        try {
-            System.out.print("Numele Facultatii : ");
-            nameFacultate = reader.readLine();
-            System.out.print("Adresa Facultatii : ");
-            adressFacultate = reader.readLine();
-            System.out.print("Nr locuri : ");
-            nrLocuri = in.nextInt();
-            System.out.print("Nr Specializari : ");
-            nrSpec = in.nextInt();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        this.numeFacultate = nameFacultate;
-        this.adresaFacultate = adressFacultate;
-        this.nrLocuriTotal = nrLocuri;
-        this.nrSpecializari = nrSpec;
-        for ( int i = 0; i < nrSpec; i++ )
-        {
-            this.specializari.add(new Specializare());
-        }
-    }
 
     public Facultate(String numeFacultate, String adresaFacultate, int nrLocuriTotal, int nrSpecializari ){
         this.numeFacultate = numeFacultate;
@@ -66,7 +38,7 @@ public class Facultate {
 
         for ( int i = 0; i < nrSpecializari; i++ )
         {
-            this.specializari.add(new Specializare());
+            this.specializari.add(ConsoleTextService.getInstance().readConsoleSpecializare());
         }
     }
 
