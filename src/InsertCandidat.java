@@ -1,5 +1,8 @@
 import com.participant.candidat.Candidat;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.sql.*;
 import java.util.List;
 import javax.swing.*;
@@ -78,6 +81,8 @@ public class InsertCandidat extends JFrame {
                 } catch (SQLException ex) {
                     System.out.println("Eroare la conectarea la BD.");
                 }
+                Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+                setService("insertCandidat", timestamp);
             }
         });
         inapoi.addActionListener(new ActionListener() {
@@ -87,8 +92,30 @@ public class InsertCandidat extends JFrame {
                 myForm.setVisible(true);
 //                myForm.pack();
                 dispose();
+                Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+                setService("inapoi", timestamp);
             }
         });
+    }
+
+    public void setService(String actiune, Timestamp timestamp) {
+        try (PrintWriter writer = new PrintWriter(new File("actiuni.csv"))) {
+
+            StringBuilder sb = new StringBuilder();
+
+//                    System.out.println(timestamp);
+            sb.append(actiune);
+            sb.append(',');
+            sb.append(timestamp);
+            sb.append('\n');
+
+            writer.write(sb.toString());
+
+            System.out.println("done!");
+
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     {
